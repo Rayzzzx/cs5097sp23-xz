@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GeoCoordinatePortable;
 using UnityEngine;
 
 // Mapbox library
 using Mapbox.Examples;
 using Mapbox.Utils;
+using UnityEditor;
 
 public class EventPointer : MonoBehaviour
 {
@@ -17,11 +19,15 @@ public class EventPointer : MonoBehaviour
 
     private LocationStatus playerLocation;
 
-    public Vector2d eventPose;
+    public Vector2d eventPos;
+    public int eventID;
+
+    private MenuUIManager menuUIManager;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        menuUIManager = GameObject.Find("Canvas").GetComponent<MenuUIManager>();
     }
 
     // Update is called once per frame
@@ -41,6 +47,18 @@ public class EventPointer : MonoBehaviour
     private void OnMouseDown()
     {
         playerLocation = GameObject.Find("Canvas").GetComponent<LocationStatus>();
-        Debug.Log("Clicked.");
+        var currentPlayerLocation =
+            new GeoCoordinatePortable.GeoCoordinate(playerLocation.GetLocationLat(), playerLocation.GetLocationLon());
+        var eventLocation = new GeoCoordinatePortable.GeoCoordinate(eventPos[0], eventPos[1]);
+        var distance = currentPlayerLocation.GetDistanceTo(eventLocation);
+        Debug.Log("Distance is:" + distance);
+        if (distance < 100)
+        {
+            menuUIManager.DisplayStartEventPanel();
+        }
+        else
+        {
+            menuUIManager.DisplayUserNotInRangePanel();
+        }
     }
 }

@@ -725,6 +725,7 @@
 "Assets/Mapbox/Unity/Utilities/VectorExtensions.cs"
 "Assets/Scripts/EventPointer.cs"
 "Assets/Scripts/GeoCoordinate.cs"
+"Assets/Scripts/MenuUIManager.cs"
 -langversion:9.0
 
 /deterministic
