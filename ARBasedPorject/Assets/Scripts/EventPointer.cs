@@ -23,11 +23,13 @@ public class EventPointer : MonoBehaviour
     public int eventID;
 
     private MenuUIManager menuUIManager;
+    private EventManager eventManager;
     
     // Start is called before the first frame update
     void Start()
     {
         menuUIManager = GameObject.Find("Canvas").GetComponent<MenuUIManager>();
+        eventManager = GameObject.Find("-EventManager").GetComponent<EventManager>();
     }
 
     // Update is called once per frame
@@ -52,9 +54,9 @@ public class EventPointer : MonoBehaviour
         var eventLocation = new GeoCoordinatePortable.GeoCoordinate(eventPos[0], eventPos[1]);
         var distance = currentPlayerLocation.GetDistanceTo(eventLocation);
         Debug.Log("Distance is:" + distance);
-        if (distance < 100)
+        if (distance < eventManager.maxDistance)
         {
-            menuUIManager.DisplayStartEventPanel();
+            menuUIManager.DisplayStartEventPanel(eventID);
         }
         else
         {

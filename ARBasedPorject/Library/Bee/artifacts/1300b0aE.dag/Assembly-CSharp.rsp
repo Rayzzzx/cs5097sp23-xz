@@ -723,7 +723,9 @@
 "Assets/Mapbox/Unity/Utilities/TelemetryConfigurationButton.cs"
 "Assets/Mapbox/Unity/Utilities/VectorEntity.cs"
 "Assets/Mapbox/Unity/Utilities/VectorExtensions.cs"
+"Assets/Scripts/EventManager.cs"
 "Assets/Scripts/EventPointer.cs"
+"Assets/Scripts/EventUIManager.cs"
 "Assets/Scripts/GeoCoordinate.cs"
 "Assets/Scripts/MenuUIManager.cs"
 -langversion:9.0

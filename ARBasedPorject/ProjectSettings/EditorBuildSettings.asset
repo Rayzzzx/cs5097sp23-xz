@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/NEU SV Scene 1.unity
+    guid: 85244586b2c624443a71d8512abc95a2
+  - enabled: 1
+    path: Assets/Scenes/NEU SV Scene 2.unity
+    guid: 675eb8f5bf7e041838927e6dcfb0813e
+  - enabled: 1
+    path: Assets/Mapbox/Examples/0_PrefabScenes/Location-basedGame.unity
+    guid: 42f6aa7ce7a604f16ade319663f46ceb
   m_configObjects: {}
